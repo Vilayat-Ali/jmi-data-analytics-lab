@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "data-analytics-lab"
+version = "0.1.0"
+description = ""
+authors = ["vilayat-ali <vilayatcodemysite@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+[tool.poetry.scripts]
+assess_01 = "assessment_01:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
