@@ -13,9 +13,9 @@ def run_ques_01():
 
     table = Table(table_headers, table_data)
     
-    table.print(20)
+    table.print(200)
 
     # making vector
     tf_vec = doc.get_term_freq_vector()
 
-    print(tf_vec)
+    # print(tf_vec)

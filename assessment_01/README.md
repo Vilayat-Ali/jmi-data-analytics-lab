@@ -6,7 +6,7 @@
 
 ## Question - 2
 
-*Write Python code to perform document analysis of 2 different documents and create their frequency table (vectors) for words common in both documents. Write logic to highly most important words present in both of documents*
+*Write Python code to perform document analysis of 2 different documents and create their frequency table (vectors) for words common in both documents. Write logic to highlight most important words present in both of documents*
 
 *Bonus*
 - Write a `stop word removal` logic
@@ -32,6 +32,6 @@ The excerpts from these 2 sources will mimic real-word analysis and foster more 
 3. Writing util functions used here like `stop word removal` from scratch
 4. Optimised algorithm for finding uniqe words between 2 documents
 5. No libraries
-6. Using memoising/caching.
+6. Using memoisation/caching.
 7. Performed data cleaning at basic text level
 8. Used self-developed util functions

@@ -1,21 +1,35 @@
 from ..util.word_to_vec import Word2Vec
 from ..util.table import Table
 
+def common_term_frequency(doc_1: Word2Vec, doc_2: Word2Vec) -> list[list[str, str]]:
+    common_term_ft: dict[str, int] = {}
+
+
 def run_ques_02():
-    doc = Word2Vec("the_great_expectations.txt")
-    table_headers = ["Word (Term)", "Term Frequency"]
+    doc_1 = Word2Vec("the_great_expectations.txt")
+    doc_2 = Word2Vec("the_treasure_island.txt")
+    table_headers = ["Common Word (Term)", "Term Frequency"]
 
-    table_data: list[list[str, int]] = []
+    common_term_map: dict[str, int] = {}
 
-    # printing the table
-    for key in doc.frequency_table.keys():
-        table_data.append([str(key), doc.frequency_table[key]])
+    for key in doc_1.frequency_table.keys():
+        if key in doc_2.frequency_table:
+            common_term_map[key] = min(doc_1.frequency_table[key], doc_2.frequency_table[key])
 
-    table = Table(table_headers, table_data)
+
+
+    # table_data: list[list[str, int]] = []
+
+    # table = Table(table_headers, table_data)
     
-    table.print(20)
+    # table.print(20)
 
     # making vector
-    tf_vec = doc.get_term_freq_vector()
+    vec = []
 
-    print(tf_vec)
+    # for key in common_term_map.keys():
+    #     vec.append(
+
+    #     )
+
+    print(common_term_map)

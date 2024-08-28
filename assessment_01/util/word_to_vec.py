@@ -15,7 +15,6 @@ class Word2Vec:
 
     def __init__(self, filepath):
         try:
-            self.words = set()
             self.frequency_table: dict[str, int] = {}
 
             # Reading document at filepath
@@ -30,17 +29,12 @@ class Word2Vec:
                     words = clean_string(line).split()
                     for word in words:
                         if word not in stop_words:
-                            self.words.add(word.lower())
+                            if word not in self.frequency_table:
+                                self.frequency_table[word.lower()] = 1
+                            else:
+                                self.frequency_table[word.lower()] += 1                 
 
-            self.words = sorted(self.words)
-
-            # fetching term frequency
-            for word in self.words:
-                if word not in stop_words:
-                    if word in self.frequency_table:
-                        self.frequency_table[word.lower()] += 1
-                    else:
-                        self.frequency_table[word.lower()] = 1
+            self.words = sorted([word for word in self.frequency_table.keys()])
         except FileNotFoundError as e:
             print(e)
 

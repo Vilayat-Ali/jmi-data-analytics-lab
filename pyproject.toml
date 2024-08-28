@@ -9,7 +9,7 @@ readme = "README.md"
 python = "^3.12"
 
 [tool.poetry.scripts]
-assess_01 = "assessment_01:main"
+assessment = "assessment_02:main"
 
 [build-system]
 requires = ["poetry-core"]
