@@ -1,11 +1,9 @@
 from assessment_01.util.word_to_vec import Word2Vec
 
-def calc_cosine_distance(tf_map: dict[str, list[int]]):
+def calc_cosine_similarity(tf_map: dict[str, list[int]]):
     d1_d2_dot = 0
     d1_sq_sum = 0
     d2_sq_sum = 0
-
-    # distance: list[int] = []
 
     for key in tf_map.keys():
         row = tf_map[key]
@@ -13,9 +11,7 @@ def calc_cosine_distance(tf_map: dict[str, list[int]]):
         d1_sq_sum += row[0] ** 2
         d2_sq_sum += row[1] ** 2
 
-    cos_dist = d1_d2_dot / (pow(d1_sq_sum, 0.5) * pow(d2_sq_sum, 0.5))
-
-    return cos_dist
+    return d1_d2_dot / (pow(d1_sq_sum, 0.5) * pow(d2_sq_sum, 0.5))
 
 
 def run_question_02():
@@ -28,6 +24,9 @@ def run_question_02():
         if key in doc_2.frequency_table:
             tf_map[key] = [doc_1.frequency_table[key], doc_2.frequency_table[key]]
 
-    cos_dist = calc_cosine_distance(tf_map)
+    print(tf_map)
 
-    print(cos_dist)
+    cos_sim = calc_cosine_similarity(tf_map)
+
+    print(f"Cosine similarity: {cos_sim}")
+    print(f"Cosine distance: {1 - cos_sim}")
